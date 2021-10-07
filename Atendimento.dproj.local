@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/09/12 00:33:30.000.258,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/12 00:39:16.000.657,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/12 00:41:19.000.467,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/12 00:41:26.000.585,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/18 10:56:24.000.195,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/06 20:48:07.000.271,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/06 20:48:22.000.684,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Login.pas</Transaction>
+    <Transaction>2021/10/06 20:48:22.000.684,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Login.dfm</Transaction>
+    <Transaction>2021/10/06 21:57:16.000.085,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Atendimento.dproj</Transaction>
+    <Transaction>2021/10/06 22:02:11.000.870,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Atendimento.dproj=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Atendimento.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
