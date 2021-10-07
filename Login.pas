@@ -40,10 +40,10 @@ procedure TForm1.Edit_CodKeyPress(Sender: TObject; var Key: Char);
     Key := #0;
     if Edit_Cod.Text = '' then
     begin
-      Edit_Cod.Text := 'Código'
+      Edit_Cod.Text := 'Cód'
     end;
     if (Edit_cod.Text <>'')
-    and (Edit_cod.Text <> 'Código') then
+    and (Edit_cod.Text <> 'Cód') then
     begin
       Edit_Senha.SetFocus;
     end;
