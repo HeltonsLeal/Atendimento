@@ -1,0 +1,23 @@
+object DM_CONEXAO: TDM_CONEXAO
+  OldCreateOrder = False
+  Height = 242
+  Width = 322
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=D:\Compralhitada\Atendimento\ATENDIMENTO.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 72
+    Top = 112
+  end
+  object Qry_Usuarios: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from usuarios')
+    Left = 224
+    Top = 136
+  end
+end

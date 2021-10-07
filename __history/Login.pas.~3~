@@ -1,0 +1,82 @@
+unit Login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit_Cod: TEdit;
+    Edit_Nome: TEdit;
+    Edit_Senha: TEdit;
+    Button_Login: TButton;
+    procedure Edit_CodKeyPress(Sender: TObject; var Key: Char);
+    procedure Edit_NomeKeyPress(Sender: TObject; var Key: Char);
+    procedure Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+
+
+
+procedure TForm1.Edit_CodKeyPress(Sender: TObject; var Key: Char);
+ begin
+  if key = #13 then
+  begin
+    SelectNext(Sender as tWinControl, True, True);
+    Key := #0;
+    if Edit_Cod.Text = '' then
+    begin
+      Edit_Cod.Text := 'Cód igo'
+    end;
+    if (Edit_cod.Text <>'')
+    and (Edit_cod.Text <> 'Código') then
+    begin
+      Edit_Senha.SetFocus;
+    end;
+
+  end;
+
+
+ end;
+
+procedure TForm1.Edit_NomeKeyPress(Sender: TObject; var Key: Char);
+ begin
+  if key = #13 then
+  begin
+    SelectNext(Sender as tWinControl, True, True);
+    Key := #0;
+    if Edit_Nome.Text = '' then
+    begin
+      Edit_Nome.Text := 'Nome'
+    end;
+  end;
+ end;
+
+procedure TForm1.Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
+ begin
+  if key = #13 then
+  begin
+    SelectNext(Sender as tWinControl, True, True);
+    Key := #0;
+    if Edit_Senha.Text = '' then
+    begin
+      Edit_Senha.Text := 'Nome'
+    end;
+  end;
+ end;
+
+end.

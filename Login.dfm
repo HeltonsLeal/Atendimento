@@ -34,6 +34,7 @@ object Form1: TForm1
     Top = 16
     Width = 200
     Height = 32
+    CharCase = ecUpperCase
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -20
@@ -41,7 +42,7 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    Text = 'Nome'
+    Text = 'NOME'
     OnKeyPress = Edit_NomeKeyPress
   end
   object Edit_Senha: TEdit
@@ -72,5 +73,10 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+  end
+  object Ds_Sql_Usuarios: TDataSource
+    DataSet = DM_CONEXAO.Qry_Usuarios
+    Left = 256
+    Top = 96
   end
 end

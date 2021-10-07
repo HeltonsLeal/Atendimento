@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB;
 
 type
   TForm1 = class(TForm)
@@ -12,14 +12,21 @@ type
     Edit_Nome: TEdit;
     Edit_Senha: TEdit;
     Button_Login: TButton;
+    Ds_Sql_Usuarios: TDataSource;
     procedure Edit_CodKeyPress(Sender: TObject; var Key: Char);
     procedure Edit_NomeKeyPress(Sender: TObject; var Key: Char);
     procedure Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
+
+
 
   private
     { Private declarations }
   public
     { Public declarations }
+    Cod,
+    Nome,
+    Senha
+    : String
   end;
 
 var
@@ -28,6 +35,10 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Conexao_Bd, Atendimento_bd;
+
+
 
 
 
@@ -38,16 +49,34 @@ procedure TForm1.Edit_CodKeyPress(Sender: TObject; var Key: Char);
   begin
     SelectNext(Sender as tWinControl, True, True);
     Key := #0;
+    Cod := Edit_Cod.Text;
     if Edit_Cod.Text = '' then
     begin
       Edit_Cod.Text := 'Código'
     end;
     if (Edit_cod.Text <>'')
-    and (Edit_cod.Text <> 'Código') then
+    And (Edit_cod.Text <> 'Código') then
     begin
-      Edit_Senha.SetFocus;
-    end;
+     Try
+      With DM_CONEXAO.Qry_Usuarios do
+        begin
+        Close;
+        SQL.Clear;
+        SQL.Add('SELECT * FROM USUARIOS WHERE VENDEDOR =');
+        SQL.Add(Cod);
+        Open();
+        Edit_Nome.Text := FieldByName('USUARIO').Value;
+        Senha := FieldByName('SENHA').Value;
+        Edit_Senha.SetFocus;
+        Edit_Senha.Text := '';
+        Edit_Senha.PasswordChar :='*';
+        end;
+     Except
 
+      ShowMessage('USUÁRIO NÃO CADASTRADO');
+
+     End;
+    end;
   end;
 
 
@@ -61,8 +90,32 @@ procedure TForm1.Edit_NomeKeyPress(Sender: TObject; var Key: Char);
     Key := #0;
     if Edit_Nome.Text = '' then
     begin
-      Edit_Nome.Text := 'Nome'
-    end;
+      Edit_Nome.Text := 'NOME'
+    end
+    Else if Edit_Nome.Text <>'NOME' then
+      begin
+       Nome := Edit_Nome.Text;
+       Try
+        With DM_CONEXAO.Qry_Usuarios do
+          begin
+          Close;
+          SQL.Clear;
+          SQL.Add('SELECT * FROM USUARIOS WHERE USUARIO =');
+          SQL.Add(''''+Nome+'''');
+          Open();
+          Edit_Cod.Text := IntToStr(FieldByName('VENDEDOR').Value);
+          Senha := FieldByName('SENHA').Value;
+          Edit_Senha.SetFocus;
+          Edit_Senha.Text := '';
+          Edit_Senha.PasswordChar :='*';
+          end;
+       Except
+
+        ShowMessage('USUÁRIO NÃO CADASTRADO');
+
+       End;
+
+      end;
   end;
  end;
 
@@ -72,10 +125,29 @@ procedure TForm1.Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
   begin
     SelectNext(Sender as tWinControl, True, True);
     Key := #0;
-    if Edit_Senha.Text = '' then
+    if (Edit_Senha.Text = '')
+    Or (Edit_Senha.Text = 'Senha')
+    Or (Edit_Cod.Text = 'Código')
+    Or (Edit_Cod.Text = 'Código')
+    Or (Edit_Nome.Text = 'NOME')
+    Or (Edit_Nome.Text = 'NOME')
+    then
     begin
-      Edit_Senha.Text := 'Nome'
-    end;
+      Edit_Senha.Text := 'Senha';
+      Edit_Cod.SetFocus;
+    end
+    Else  If (Senha = Edit_Senha.Text)
+      then
+      Begin
+        Atendimento_bd := TAtendimento.create(nil);
+        Atendimento_bd.show;
+        //ShowMessage('LOGIN EFETUADO COM SUCESSO');
+      End
+      Else
+        Begin
+          ShowMessage('SENHA INVALIDA');
+          Edit_Senha.SetFocus;
+        End;
   end;
  end;
 
