@@ -4,7 +4,7 @@ object DM_CONEXAO: TDM_CONEXAO
   Width = 322
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Database=192.168.25.200:d:\ettica\exec\dados\dados.fdb'
+      'Database=c:\ettica\exec\dados\globo.fdb'
       'User_Name=sysdba'
       'Password=masterkey'
       'DriverID=FB')

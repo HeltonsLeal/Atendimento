@@ -98,8 +98,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Login.pas">
-            <Form>Form1</Form>
+        <DCCReference Include="Frm_Login.pas">
+            <Form>Login</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Conexao_Bd.pas">
@@ -107,7 +107,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Atendimento_bd.pas">
+        <DCCReference Include="Frm_Atendimento.pas">
             <Form>Atendimento</Form>
             <FormType>dfm</FormType>
         </DCCReference>
