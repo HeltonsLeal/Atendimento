@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/09/12 00:33:30.000.258,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/12 00:39:16.000.657,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/12 00:41:19.000.467,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/12 00:41:26.000.585,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/18 10:56:24.000.195,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/06 20:48:07.000.271,=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/06 20:48:22.000.684,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Login.pas</Transaction>
+    <Transaction>2021/10/06 20:48:22.000.684,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Login.dfm</Transaction>
+    <Transaction>2021/10/06 21:57:16.000.085,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Atendimento.dproj</Transaction>
+    <Transaction>2021/10/06 22:02:11.000.870,C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Atendimento.dproj=C:\Users\Helton\Documents\Embarcadero\Studio\Projects\Atendimento.dproj</Transaction>
+    <Transaction>2021/10/07 12:35:00.000.448,=D:\Drive\Local\Atendimento\Conexao_Bd.pas</Transaction>
+    <Transaction>2021/10/07 12:35:49.000.156,D:\Drive\Local\Atendimento\Conexao_Bd.pas=</Transaction>
+    <Transaction>2021/10/07 12:36:24.000.439,=D:\Drive\Local\Atendimento\Conexao_Bd.pas</Transaction>
+    <Transaction>2021/10/07 17:48:51.000.181,=D:\Drive\Local\Atendimento\Atendimento_bd.pas</Transaction>
+    <Transaction>2021/10/07 21:35:38.000.228,C:\Google Drive\Local\Projetos\Delphi\Atendimento\Login.dfm=C:\Google Drive\Local\Projetos\Delphi\Atendimento\Frm_Login.dfm</Transaction>
+    <Transaction>2021/10/07 21:35:38.000.227,C:\Google Drive\Local\Projetos\Delphi\Atendimento\Login.pas=C:\Google Drive\Local\Projetos\Delphi\Atendimento\Frm_Login.pas</Transaction>
+    <Transaction>2021/10/07 21:39:06.000.614,C:\Google Drive\Local\Projetos\Delphi\Atendimento\Atendimento_bd.pas=C:\Google Drive\Local\Projetos\Delphi\Atendimento\Frm_Atendimento.pas</Transaction>
+    <Transaction>2021/10/07 21:39:06.000.614,C:\Google Drive\Local\Projetos\Delphi\Atendimento\Atendimento_bd.dfm=C:\Google Drive\Local\Projetos\Delphi\Atendimento\Frm_Atendimento.dfm</Transaction>
+    <Transaction>2021/10/08 14:21:54.014,=D:\Drive\Local\Projetos\Delphi\Atendimento\Atendimento.dpr</Transaction>
+    <Transaction>2021/10/08 14:30:48.207,D:\Drive\Local\Projetos\Delphi\Atendimento\Proj_Atendimento.dproj=D:\Drive\Local\Projetos\Delphi\Atendimento\Atendimento.dproj</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Frm_Login.pas"/>
+    <File Path="Frm_Login.dfm"/>
+    <File Path="Conexao_Bd.pas"/>
+    <File Path="Conexao_Bd.dfm"/>
+    <File Path="Frm_Atendimento.pas"/>
+    <File Path="Frm_Atendimento.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

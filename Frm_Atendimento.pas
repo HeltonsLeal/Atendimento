@@ -42,13 +42,13 @@ type
     procedure On_OffClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure NomePc;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure StatusClick(Sender: TObject);
     procedure NotificationCenter1ReceiveLocalNotification(Sender: TObject;
       ANotification: TNotification);
     procedure Informacoes;
     procedure MinhaPosFila;
     procedure Att_Status;
+
 
 
 
@@ -96,7 +96,7 @@ implementation
 
 {$R *.dfm}
 
-uses CONEXAO_BD;
+uses CONEXAO_BD, Frm_Login;
 
 
 
@@ -105,10 +105,7 @@ uses CONEXAO_BD;
 
 
 // NO FECHAMENTO DO PROGRAMA ELE IRA REGISTRAR A ATUALIZAÇÃO
-procedure TAtendimento.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  
-end;
+
 
 // NA ABERTURA DO PROGRAMA ELE IRA REGISTRAR A ATUALIZAÇÃO
 procedure TAtendimento.FormShow(Sender: TObject);
@@ -136,6 +133,7 @@ begin
   Label_Pc_6_Quando.Caption:= '';
   Label_Pc_7_Quando.Caption:= '';
   NomePc;
+  Login.Show;
   Status.Visible := False;
   Meu_Status := 'CONECTADO';
   Att_Status;

@@ -19,6 +19,10 @@ type
 
 
 
+
+
+
+
   private
     { Private declarations }
   public
@@ -140,11 +144,8 @@ procedure TLogin.Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
     Else  If (Senha = Edit_Senha.Text)
       then
       Begin
-        Atendimento := TAtendimento.Create(Application);
-        Atendimento.Usuario := Nome;
-        Atendimento.Show;
-       Login.Hide;
-   //     Login.Close;
+
+        Login.Close;
 
       End
       Else
@@ -155,4 +156,11 @@ procedure TLogin.Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
   end;
  end;
 
+
+
+
+
 end.
+
+
+
