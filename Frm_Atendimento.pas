@@ -57,8 +57,7 @@ type
   public
   var
     AtendimentoIni: TIniFile;
-    Pega_Nome: array[0..255] of char;
-    Nome_Pc,
+
     Ultima_Atualizacao,
     Atualizado,
     Meu_Status,
@@ -132,7 +131,9 @@ begin
   Label_Pc_5_Quando.Caption:= '';
   Label_Pc_6_Quando.Caption:= '';
   Label_Pc_7_Quando.Caption:= '';
-  Login.ShowModal;
+  Btn_Status.Visible := False;
+//  Login.ShowModal;
+  Meu_Status := 'CONECTADO';
   Login_Ok;
 end;
 
@@ -269,18 +270,20 @@ procedure TAtendimento.Btn_On_OffClick(Sender: TObject);
 
  end;
 
+//ATUALIZAÇÃO DE STATUS
 procedure TAtendimento.Att_Status;
- begin
-  DM_CONEXAO.Qry_Usuarios.Close;
-  DM_CONEXAO.Qry_Usuarios.SQL.Clear;
-  DM_CONEXAO.Qry_Usuarios.SQL.Add('UPDATE USUARIOS SET CONTAS_PERMITIDAS =');
-  DM_CONEXAO.Qry_Usuarios.SQL.Add(''''+Meu_Status+'''');
-  DM_CONEXAO.Qry_Usuarios.SQL.Add('WHERE USUARIO =');
-  DM_CONEXAO.Qry_Usuarios.SQL.Add(''''+Usuario+'''');
-  DM_CONEXAO.Qry_Usuarios.ExecSQL;
- end;
-
-
+begin
+  with DM_CONEXAO.Qry_Usuarios do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('UPDATE USUARIOS SET CONTAS_PERMITIDAS =');
+    SQL.Add(''''+Meu_Status+'''');
+    SQL.Add('WHERE USUARIO =');
+    SQL.Add(''''+Usuario+'''');
+    ExecSQL;
+  end;
+end;
 
 // BOTÃO INIFICAR E FINALIZAR PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
 procedure TAtendimento.Btn_StatusClick(Sender: TObject);
@@ -301,26 +304,23 @@ procedure TAtendimento.Btn_StatusClick(Sender: TObject);
 
 // BARRA DE STATUS COM O CONTADO DE HORAS E SE ESTA LOGADO
 procedure TAtendimento.Timer1Timer(Sender: TObject);
-
-  var
-  MyNotification: TNotification;
-  begin
-
-  StatusBar1.Panels[0].text := DateTimetoStr(Now);
-  StatusBar1.Panels[1].text := Meu_Status;
+begin
+StatusBar1.Panels[0].text := DateTimetoStr(Now);
+StatusBar1.Panels[1].text := Meu_Status;
+//StatusBar1.Panels[2].text := Meu_Status;
 
 //  Informacoes;
-   (*
-  if data_ult_att < Data_ini then
-  begin
-  Informacoes;
-  data_ult_att := DateTimeToStr(now)
-  end;
-     *)
+ (*
+if data_ult_att < Data_ini then
+begin
+Informacoes;
+data_ult_att := DateTimeToStr(now)
+end;
+   *)
 
 
 
 
 
-  end;
+end;
 end.

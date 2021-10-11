@@ -57,7 +57,8 @@ type
   public
   var
     AtendimentoIni: TIniFile;
-
+    Pega_Nome: array[0..255] of char;
+    Nome_Pc,
     Ultima_Atualizacao,
     Atualizado,
     Meu_Status,
@@ -103,10 +104,10 @@ uses CONEXAO_BD, Frm_Login;
 { TForm1 }
 
 
-// NO FECHAMENTO DO PROGRAMA ELE IRA REGISTRAR A ATUALIZA√á√ÉO
+// NO FECHAMENTO DO PROGRAMA ELE IRA REGISTRAR A ATUALIZA«√O
 
 
-// NA ABERTURA DO PROGRAMA ELE IRA REGISTRAR A ATUALIZA√á√ÉO
+// NA ABERTURA DO PROGRAMA ELE IRA REGISTRAR A ATUALIZA«√O
 procedure TAtendimento.FormShow(Sender: TObject);
 
 begin
@@ -131,13 +132,11 @@ begin
   Label_Pc_5_Quando.Caption:= '';
   Label_Pc_6_Quando.Caption:= '';
   Label_Pc_7_Quando.Caption:= '';
-  Btn_Status.Visible := False;
-//  Login.ShowModal;
-  Meu_Status := 'CONECTADO';
+  Login.ShowModal;
   Login_Ok;
 end;
 
-// INFORMA√á√ïES DOS COMPUTADORES
+// INFORMA«’ES DOS COMPUTADORES
 procedure TAtendimento.Informacoes;
  var
  Num_Label, Contagem : Integer;
@@ -206,7 +205,7 @@ begin
 
 end;
 
-// VERIFICANDO SE O LOGIN EST√Å OK
+// VERIFICANDO SE O LOGIN EST¡ OK
 procedure TAtendimento.Login_Ok;
 begin
   if Meu_Status = '' then
@@ -230,7 +229,7 @@ end;
 
 //PEGANDO O NOME DO PC
 
-//teste de notifica√ß√£o
+//teste de notificaÁ„o
 procedure TAtendimento.NotificationCenter1ReceiveLocalNotification(Sender: TObject;
   ANotification: TNotification);
  var
@@ -248,7 +247,7 @@ begin
   end;
 end;
 
-// BOT√ÉO ON OFF PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
+// BOT√O ON OFF PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
 procedure TAtendimento.Btn_On_OffClick(Sender: TObject);
 
  begin
@@ -270,22 +269,20 @@ procedure TAtendimento.Btn_On_OffClick(Sender: TObject);
 
  end;
 
-//ATUALIZA√á√ÉO DE STATUS
 procedure TAtendimento.Att_Status;
-begin
-  with DM_CONEXAO.Qry_Usuarios do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('UPDATE USUARIOS SET CONTAS_PERMITIDAS =');
-    SQL.Add(''''+Meu_Status+'''');
-    SQL.Add('WHERE USUARIO =');
-    SQL.Add(''''+Usuario+'''');
-    ExecSQL;
-  end;
-end;
+ begin
+  DM_CONEXAO.Qry_Usuarios.Close;
+  DM_CONEXAO.Qry_Usuarios.SQL.Clear;
+  DM_CONEXAO.Qry_Usuarios.SQL.Add('UPDATE USUARIOS SET CONTAS_PERMITIDAS =');
+  DM_CONEXAO.Qry_Usuarios.SQL.Add(''''+Meu_Status+'''');
+  DM_CONEXAO.Qry_Usuarios.SQL.Add('WHERE USUARIO =');
+  DM_CONEXAO.Qry_Usuarios.SQL.Add(''''+Usuario+'''');
+  DM_CONEXAO.Qry_Usuarios.ExecSQL;
+ end;
 
-// BOT√ÉO INIFICAR E FINALIZAR PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
+
+
+// BOT√O INIFICAR E FINALIZAR PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
 procedure TAtendimento.Btn_StatusClick(Sender: TObject);
  begin
   if Btn_Status.caption = 'INICIAR ATENDIMENTO' then
@@ -304,23 +301,26 @@ procedure TAtendimento.Btn_StatusClick(Sender: TObject);
 
 // BARRA DE STATUS COM O CONTADO DE HORAS E SE ESTA LOGADO
 procedure TAtendimento.Timer1Timer(Sender: TObject);
-begin
-StatusBar1.Panels[0].text := DateTimetoStr(Now);
-StatusBar1.Panels[1].text := Meu_Status;
-//StatusBar1.Panels[2].text := Meu_Status;
+
+  var
+  MyNotification: TNotification;
+  begin
+
+  StatusBar1.Panels[0].text := DateTimetoStr(Now);
+  StatusBar1.Panels[1].text := Meu_Status;
 
 //  Informacoes;
- (*
-if data_ult_att < Data_ini then
-begin
-Informacoes;
-data_ult_att := DateTimeToStr(now)
-end;
-   *)
+   (*
+  if data_ult_att < Data_ini then
+  begin
+  Informacoes;
+  data_ult_att := DateTimeToStr(now)
+  end;
+     *)
 
 
 
 
 
-end;
+  end;
 end.

@@ -294,10 +294,7 @@ object Atendimento: TAtendimento
     Height = 19
     Panels = <
       item
-        Width = 150
-      end
-      item
-        Width = 150
+        Width = 200
       end
       item
         Width = 50
