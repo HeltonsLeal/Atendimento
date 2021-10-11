@@ -102,17 +102,15 @@
         </DelphiCompile>
         <DCCReference Include="Frm_Login.pas">
             <Form>Login</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Conexao_Bd.pas">
             <Form>DM_CONEXAO</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="Frm_Atendimento.pas">
             <Form>Atendimento</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
+        <None Include="Proj_Atendimento.dpr"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -141,6 +139,12 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="Proj_Atendimento.dpr" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\Proj_Atendimento.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Proj_Atendimento.exe</RemoteName>

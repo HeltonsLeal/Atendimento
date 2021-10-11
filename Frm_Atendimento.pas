@@ -11,8 +11,8 @@ type
   TAtendimento = class(TForm)
     StatusBar1: TStatusBar;
     Timer1: TTimer;
-    On_Off: TButton;
-    Status: TButton;
+    Btn_On_Off: TButton;
+    Btn_Status: TButton;
     Label_Pc_1: TLabel;
     Label_Pc_2: TLabel;
     Label_Pc_3: TLabel;
@@ -39,15 +39,15 @@ type
 
 //  procedure GravaIni;
     procedure Timer1Timer(Sender: TObject);
-    procedure On_OffClick(Sender: TObject);
+    procedure Btn_On_OffClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure NomePc;
-    procedure StatusClick(Sender: TObject);
+    procedure Btn_StatusClick(Sender: TObject);
     procedure NotificationCenter1ReceiveLocalNotification(Sender: TObject;
       ANotification: TNotification);
     procedure Informacoes;
     procedure MinhaPosFila;
     procedure Att_Status;
+    procedure Login_Ok;
 
 
 
@@ -132,18 +132,14 @@ begin
   Label_Pc_5_Quando.Caption:= '';
   Label_Pc_6_Quando.Caption:= '';
   Label_Pc_7_Quando.Caption:= '';
-  NomePc;
-  Login.Show;
-  Status.Visible := False;
-  Meu_Status := 'CONECTADO';
-  Att_Status;
-//  Informacoes;
+  Login.ShowModal;
+  Login_Ok;
 end;
 
 // INFORMAÇÕES DOS COMPUTADORES
 procedure TAtendimento.Informacoes;
-    var
-    Num_Label, Contagem : Integer;
+ var
+ Num_Label, Contagem : Integer;
 begin
    For Contagem := 1 to 6 do
   begin
@@ -209,64 +205,65 @@ begin
 
 end;
 
+// VERIFICANDO SE O LOGIN ESTÁ OK
+procedure TAtendimento.Login_Ok;
+begin
+  if Meu_Status = '' then
+  begin
+    Self.Close
+  end
+  Else
+    Begin
+      FreeAndNil(Login);
+      Att_Status;
+    End;
+end;
+
 procedure TAtendimento.MinhaPosFila;
-  var
-  I : integer;
- begin
-  for I := 1 to 7 do
-  if True then
-
-
-
-
-
- end;
+ var
+ I : integer;
+begin
+ for I := 1 to 7 do
+ if True then
+end;
 
 //PEGANDO O NOME DO PC
-procedure TAtendimento.NomePc;
-  var
-  size: dword;
-  begin
-  size:=256;
-  if GetComputerName(Pega_Nome, size) then
-  Nome_Pc := Pega_Nome;
-  end;
 
 //teste de notificação
 procedure TAtendimento.NotificationCenter1ReceiveLocalNotification(Sender: TObject;
   ANotification: TNotification);
-  var
-  MyNotification: TNotification;
-  begin
-	  MyNotification := NotificationCenter1.CreateNotification;
-    try
-    MyNotification.Name := 'Windows10Notification';
-    MyNotification.Title := 'ATENDIMENTO INICIADO';
-    MyNotification.AlertBody := usuario+' INICIOU UM ANTENDIMENTO';
+ var
+ MyNotification: TNotification;
+begin
+  MyNotification := NotificationCenter1.CreateNotification;
+  try
+  MyNotification.Name := 'Windows10Notification';
+  MyNotification.Title := 'ATENDIMENTO INICIADO';
+  MyNotification.AlertBody := usuario+' INICIOU UM ANTENDIMENTO';
 
-    NotificationCenter1.PresentNotification(MyNotification);
-    finally
-    MyNotification.Free;
-    end;
+  NotificationCenter1.PresentNotification(MyNotification);
+  finally
+  MyNotification.Free;
   end;
+end;
 
 // BOTÃO ON OFF PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
-procedure TAtendimento.On_OffClick(Sender: TObject);
+procedure TAtendimento.Btn_On_OffClick(Sender: TObject);
 
  begin
-  if On_Off.caption = 'ON LINE' then
+  if Btn_On_Off.caption = 'ON LINE' then
   begin
-    On_Off.caption := 'OFF LINE';
+    Btn_On_Off.caption := 'OFF LINE';
     Meu_Status := 'ON LINE';
-    Status.Visible := True;
+    Btn_Status.Visible := True;
 
   end
   Else
   begin
-    On_Off.caption := 'ON LINE';
+    Btn_On_Off.caption := 'ON LINE';
     Meu_Status := 'OFF LINE';
-    Status.Visible := False;
-    Status.caption := 'INICIAR ATENDIMENTO';
+    Btn_Status.Visible := False;
+    Btn_Status.caption := 'INICIAR ATENDIMENTO';
 
   end;
 
@@ -286,17 +283,17 @@ procedure TAtendimento.Att_Status;
 
 
 // BOTÃO INIFICAR E FINALIZAR PARA MOSTRAR SE ESTA ON LINE OU OFF LINE
-procedure TAtendimento.StatusClick(Sender: TObject);
+procedure TAtendimento.Btn_StatusClick(Sender: TObject);
  begin
-  if Status.caption = 'INICIAR ATENDIMENTO' then
+  if Btn_Status.caption = 'INICIAR ATENDIMENTO' then
   begin
-    Status.caption := 'FINALIZAR ATENDIMENTO';
+    Btn_Status.caption := 'FINALIZAR ATENDIMENTO';
     Meu_Status := 'EM ATENDIMENTO';
     Att_Status;
   end
   Else
   begin
-    Status.caption := 'INICIAR ATENDIMENTO';
+    Btn_Status.caption := 'INICIAR ATENDIMENTO';
     Meu_Status := 'ON LINE';
     Att_Status;
   end;

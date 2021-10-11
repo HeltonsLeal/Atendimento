@@ -19,10 +19,6 @@ type
 
 
 
-
-
-
-
   private
     { Private declarations }
   public
@@ -145,7 +141,8 @@ procedure TLogin.Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
       then
       Begin
 
-        Login.Close;
+        Atendimento.Meu_Status := 'CONECTADO';
+        ModalResult := 1;
 
       End
       Else
@@ -161,6 +158,5 @@ procedure TLogin.Edit_SenhaKeyPress(Sender: TObject; var Key: Char);
 
 
 end.
-
 
 

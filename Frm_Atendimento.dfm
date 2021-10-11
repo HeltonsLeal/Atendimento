@@ -1,7 +1,7 @@
 object Atendimento: TAtendimento
   Left = 0
   Top = 0
-  Caption = 'Atendimento'
+  Caption = 'Atendimento EM TESTE'
   ClientHeight = 447
   ClientWidth = 652
   Color = clBtnFace
@@ -300,7 +300,7 @@ object Atendimento: TAtendimento
         Width = 50
       end>
   end
-  object On_Off: TButton
+  object Btn_On_Off: TButton
     Left = 8
     Top = 8
     Width = 100
@@ -314,9 +314,9 @@ object Atendimento: TAtendimento
     Font.Style = []
     ParentFont = False
     TabOrder = 1
-    OnClick = On_OffClick
+    OnClick = Btn_On_OffClick
   end
-  object Status: TButton
+  object Btn_Status: TButton
     Left = 114
     Top = 8
     Width = 250
@@ -329,7 +329,7 @@ object Atendimento: TAtendimento
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    OnClick = StatusClick
+    OnClick = Btn_StatusClick
   end
   object Timer1: TTimer
     Interval = 1
